@@ -1,48 +1,64 @@
 # QA Engineer Portfolio — Deividas Barkauskas
 
-A practical QA portfolio demonstrating my approach to software quality: requirements analysis, test design, manual functional testing, negative testing, traceability, API/database validation and test automation.
+I currently work as a **System Support Engineer**, and my role has gradually expanded into hands-on QA responsibilities. I am being mentored by a **QA Team Lead** and taking over practical QA work alongside my production-support responsibilities.
 
-I currently work as a **System Support Engineer**, where my responsibilities include production incident investigation, defect analysis, SQL/database checks, API validation, log analysis, fix validation, regression/smoke testing and release validation. My current role is expanding into hands-on QA responsibilities, and this repository documents selected QA skills using anonymized and synthetic examples.
+This repository is a place where I document what I am learning and what I already use in practice. It includes a QA mentoring exercise and an anonymized description of the real defect-validation and release workflow I work with.
 
-> **Confidentiality:** The portfolio does not contain real customer data, credentials, production URLs or proprietary source code. Business/system names and identifiers are generalized, and test data is synthetic.
+> **Confidentiality:** No real customer data, credentials, production URLs, proprietary source code or internal company identifiers are included. Public examples are generalized and use synthetic test data.
+
+## What I do in my current role
+
+My work often starts with a problem reported in Production and continues through investigation, testing and release validation:
+
+1. Investigate production incidents using **SQL, Kibana/logs and APIs**.
+2. Reproduce the problem and document the defect in **Jira** for developers.
+3. After a developer provides a fix, move the change through a **GitLab Merge Request to Stage**.
+4. Prepare the relevant test cases and validate the fix in Stage.
+5. Perform **functional and regression testing** and check logs/data where needed.
+6. If the issue is still reproducible, document the findings and return it to the developer for another fix and retest.
+7. If validation passes, merge the approved change to the main branch and **deploy it to Production**.
+8. Perform **post-deployment / smoke validation** to confirm the change works correctly in Production.
+
+A simplified example of this process is documented here:
+
+[Real-world QA workflow](./02-real-world-qa-workflow/README.md)
 
 ## Portfolio projects
 
-### 1. Manual Testing — Customer Registration
-A structured manual-testing exercise based on a customer-registration feature.
+### 1. QA Mentoring Exercise — Customer Registration
 
-Demonstrates:
-- requirements and acceptance-criteria analysis;
-- test scenarios and detailed test cases;
-- positive and negative testing;
-- Equivalence Partitioning (EP);
-- Boundary Value Analysis (BVA);
-- role/authorization testing;
-- end-to-end functional testing;
-- Requirement Traceability Matrix (RTM);
-- test-case optimization and risk-based thinking.
+This is a practical QA exercise completed as part of my hands-on mentoring with a QA Team Lead. The exercise covers:
 
-[Open the Manual Testing project](./01-manual-testing/customer-registration/README.md)
+- Acceptance Criteria
+- Test Scenarios
+- Test Cases
+- Positive and negative testing
+- Requirement Traceability Matrix (RTM)
+- Boundary Value Analysis (BVA)
+- Equivalence Partitioning (EP)
+- Risk-based thinking
+- Test-case optimization
 
-### Planned extensions
-- API testing examples with Postman
-- SQL/database validation examples
-- Jira-style bug reports
-- Playwright UI automation
-- GitHub Actions CI execution
+[Open the mentoring exercise](./01-manual-testing/customer-registration/README.md)
 
-## Technical toolkit
+### 2. Anonymized Real-World QA Workflow
 
-**Testing:** Manual Testing · Functional Testing · Regression Testing · Smoke Testing · Test Cases · Test Scenarios · Acceptance Criteria · RTM · BVA · Equivalence Partitioning
+A simplified example showing how I handle a production defect from investigation through developer fix, Stage validation, retesting and Production deployment.
+
+[Open the workflow example](./02-real-world-qa-workflow/README.md)
+
+## Tools I use
+
+**Testing:** Manual Testing · Functional Testing · Regression Testing · Smoke Testing · Test Cases · Test Scenarios · Acceptance Criteria · RTM
 
 **Technical:** SQL/MySQL · REST APIs · Postman · Kibana / log analysis · JavaScript · HTML/CSS · Git · GitLab · GitHub
 
-**Workflow:** Jira · Confluence · Jenkins · staging validation · merge requests · release validation · post-deployment production checks
+**Work tools:** Jira · Confluence · Jenkins
 
 ## Related project
 
-I also maintain an [internal automation / price-plan generator](https://github.com/DeividasBarkauskas/new-priceplan-generator) that parses structured Excel input and generates standardized MySQL procedures. It demonstrates JavaScript, SQL, business-rule validation, data transformation and internal process automation.
+I also maintain an [internal automation / price-plan generator](https://github.com/DeividasBarkauskas/new-priceplan-generator). I created it to automate part of a repetitive work process by reading structured Excel input and generating standardized SQL. It is a separate example of my JavaScript, SQL and internal-tooling experience.
 
-## About me
+## Next steps
 
-My background combines production support with an increasing focus on software quality. I am used to investigating issues beyond the UI layer by checking APIs, databases and logs, then validating fixes through staging and production release flows. My goal is to continue developing toward a dedicated **QA Engineer / Technical QA Engineer** role and progressively expand into test automation.
+I plan to extend this portfolio gradually with API testing and Playwright automation as I gain more hands-on experience in those areas.
