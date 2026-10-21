@@ -43,7 +43,7 @@ This is a practical QA exercise completed as part of my hands-on mentoring with 
 
 ### 2. Anonymized Real-World QA Workflow
 
-A simplified example showing how I handle a production issues from investigation through developer fix, Stage validation, retesting and Production deployment.
+A simplified example showing how I handle a production issue from investigation through developer fix, Stage validation, retesting and Production deployment.
 
 [Open the workflow example](./02-real-world-qa-workflow/README.md)
 
@@ -55,9 +55,15 @@ A simplified example showing how I handle a production issues from investigation
 
 **Work tools:** Jira · Confluence · Jenkins
 
-## Related project
+## Automation projects
 
-I also maintain an [internal automation / price-plan generator](https://github.com/DeividasBarkauskas/new-priceplan-generator). I created it to automate part of a repetitive work process by reading structured Excel input and generating standardized SQL. It is a separate example of my JavaScript, SQL and internal-tooling experience.
+I also build small tools to automate repetitive support and configuration tasks. These projects are useful examples of how I combine system knowledge with JavaScript and SQL to reduce manual work.
+
+### [New Price Plan Generator](https://github.com/DeividasBarkauskas/new-priceplan-generator)
+Reads structured Excel input, validates business data and generates standardized SQL for a configuration workflow.
+
+### [User Provisioning Tool](https://github.com/DeividasBarkauskas/user-provisioning-tool)
+Parses a structured user-access request, extracts account information, validates required fields and generates a standardized SQL preview. The public repository is a sanitized version of the original internal utility.
 
 ## Next steps
 
