@@ -11,7 +11,7 @@ This repository is a place where I document what I am learning and what I alread
 My work often starts with a problem reported in Production and continues through investigation, testing and release validation:
 
 1. Investigate production incidents using **SQL, Kibana/logs and APIs**.
-2. Reproduce the problem and document the defect in **Jira** for developers.
+2. Reproduce the problem and document the issue in **Jira** for developers.
 3. After a developer provides a fix, move the change through a **GitLab Merge Request to Stage**.
 4. Prepare the relevant test cases and validate the fix in Stage.
 5. Perform **functional and regression testing** and check logs/data where needed.
@@ -43,7 +43,7 @@ This is a practical QA exercise completed as part of my hands-on mentoring with 
 
 ### 2. Anonymized Real-World QA Workflow
 
-A simplified example showing how I handle a production defect from investigation through developer fix, Stage validation, retesting and Production deployment.
+A simplified example showing how I handle a production issues from investigation through developer fix, Stage validation, retesting and Production deployment.
 
 [Open the workflow example](./02-real-world-qa-workflow/README.md)
 
