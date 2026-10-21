@@ -2,7 +2,7 @@
 
 I currently work as a **System Support Engineer**, and my role has gradually expanded into hands-on QA responsibilities. I am being mentored by a **QA Team Lead** and taking over practical QA work alongside my production-support responsibilities.
 
-This repository is a place where I document what I am learning and what I already use in practice. It includes a QA mentoring exercise and an anonymized description of the real defect-validation and release workflow I work with.
+This repository is a place where I document what I am learning and what I already use in practice. It includes practical QA exercises and anonymized examples of real technical and QA-related work.
 
 > **Confidentiality:** No real customer data, credentials, production URLs, proprietary source code or internal company identifiers are included. Public examples are generalized and use synthetic test data.
 
@@ -47,11 +47,19 @@ A simplified example showing how I handle a production issue from investigation 
 
 [Open the workflow example](./02-real-world-qa-workflow/README.md)
 
+### 3. Postman Batch API Automation — Price Plan Change
+
+A sanitized reconstruction of a real business-support task where an existing UI allowed a maximum of 100 subscriptions per operation. For a request involving roughly 7,000 subscriptions, I used Postman and a JavaScript pre-request script to build batch API requests of approximately 500 records at a time.
+
+The example demonstrates **Postman, API requests, JavaScript, XML payload generation, variables and batch processing** while keeping all internal endpoints, authentication, identifiers and customer data private.
+
+[Open the Postman batch API project](./03-api-testing/batch-price-plan-change/README.md)
+
 ## Tools I use
 
-**Testing:** Manual Testing · Functional Testing · Regression Testing · Smoke Testing · Test Cases · Test Scenarios · Acceptance Criteria · RTM
+**Testing:** Manual Testing · Functional Testing · Regression Testing · Smoke Testing · API Testing · Test Cases · Test Scenarios · Acceptance Criteria · RTM
 
-**Technical:** SQL/MySQL · REST APIs · Postman · Kibana / log analysis · JavaScript · HTML/CSS · Git · GitLab · GitHub
+**Technical:** SQL/MySQL · REST/SOAP APIs · Postman · XML · Kibana / log analysis · JavaScript · HTML/CSS · Git · GitLab · GitHub
 
 **Work tools:** Jira · Confluence · Jenkins
 
@@ -67,4 +75,4 @@ Parses a structured user-access request, extracts account information, validates
 
 ## Next steps
 
-I plan to extend this portfolio gradually with API testing and Playwright automation as I gain more hands-on experience in those areas.
+I plan to extend this portfolio gradually with Playwright automation and additional API test scenarios as I gain more hands-on experience in those areas.
