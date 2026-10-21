@@ -6,13 +6,15 @@ This project is a **sanitized reconstruction of a real business-support task** I
 
 ## Business problem
 
-A business request required a price-plan related change for roughly **7,000 subscriptions**.
+A business request required a price-plan change for roughly **7,000 subscriptions**.
 
-The existing UI supported a maximum of **100 subscriptions per operation**. Processing the full request only through the UI would therefore require around **70 separate operations**, together with repeated manual data entry.
+The existing UI supported a maximum of **100 subscriptions per operation**. Processing the full request only through the UI would therefore require around **70 separate operations**.
 
-I used an existing API flow in **Postman** and prepared a small JavaScript pre-request script that converts a list of subscription identifiers into the batch structure required by the request.
+The UI flow also loads additional subscription data and retrieves available optional offers/services for the selected subscriptions. This is useful during a normal interactive sales flow, but it adds significant processing time when a large number of subscriptions is selected.
 
-For the real task I processed the data in batches of approximately **500 subscriptions**, reducing the work to around **14 API requests** instead of roughly 70 UI operations.
+For this specific business request, the target price-plan change was already known and no additional offers were required. I therefore used the application's existing backend API flow directly through **Postman**, sending only the information required for the requested price-plan/add-on order instead of repeatedly running the full interactive UI flow.
+
+I prepared a JavaScript pre-request script that converts a list of subscription identifiers into the batch structure required by the request. For the real task I processed the data in batches of approximately **500 subscriptions**, reducing the work to around **14 API requests** instead of roughly 70 UI operations.
 
 ## What I implemented
 
@@ -53,18 +55,22 @@ Business request (~7,000 subscriptions)
        Continue next batch
 ```
 
-## Why this was useful
+## Business impact
 
-The goal was not to replace the product UI, but to handle a large one-time operational request more efficiently while using an existing supported API flow.
+A UI operation for approximately **100 subscriptions took around 10 minutes** because the interactive flow had to load subscription information and retrieve available offers/services before the order could be completed.
 
-Approximate comparison:
+For approximately 7,000 subscriptions this meant around **70 UI operations**, or roughly **11 hours 40 minutes (~12 hours)** of repetitive processing.
 
-| Approach | Batch size | Operations for ~7,000 records |
-|---|---:|---:|
-| UI | 100 | ~70 |
-| Postman batch request | 500 | ~14 |
+With the Postman workflow, I processed approximately **500 subscriptions per batch**. Preparing and sending each batch took around **5 minutes**, so the recurring execution for the full set required approximately **14 requests / 70 minutes**.
 
-This reduced repetitive manual work and the chance of mistakes caused by repeatedly creating the same operation through the UI.
+| Approach | Batch size | Operations for ~7,000 | Approx. execution time |
+|---|---:|---:|---:|
+| UI workflow | 100 | ~70 | ~11 h 40 min |
+| Postman batch workflow | 500 | ~14 | ~70 min |
+
+That is roughly a **90% reduction in recurring operator time** for this type of bulk request, while also reducing repetitive manual input.
+
+The API approach did not replace or bypass business validation. It used the application's existing backend flow for a case where the required change was already known, avoiding UI-specific offer retrieval and other interactive data-loading steps that were not needed for this bulk operation.
 
 ## QA / technical skills demonstrated
 
@@ -74,9 +80,11 @@ This reduced repetitive manual work and the chance of mistakes caused by repeate
 - XML payload construction
 - Postman variables
 - Batch processing
-- Working with large test/operational data sets
+- Working with large operational data sets
+- Understanding UI-to-backend API flows
 - Translating a business request into a technical solution
 - Manual validation of API requests and responses
+- Process optimization and risk reduction
 
 ## Public demo
 
