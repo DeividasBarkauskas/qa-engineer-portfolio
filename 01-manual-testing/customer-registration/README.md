@@ -1,58 +1,52 @@
-# Manual Testing Project — Customer Registration
+# QA Mentoring Exercise — Customer Registration
 
-## Objective
+## About this exercise
 
-This project demonstrates a structured manual QA approach for a web-based prepaid customer-registration feature. It starts from acceptance criteria and traces them through test scenarios, test cases and an RTM.
+This project is based on a practical QA exercise I completed while being mentored by a **QA Team Lead** as I take on more QA responsibilities in my current role.
 
-The original exercise was reviewed during hands-on QA mentoring. For this public portfolio version, the material has been cleaned up, generalized and improved based on the review: duplicate coverage was reduced, expected results were made more explicit, and test-design techniques such as **Boundary Value Analysis** and **Equivalence Partitioning** were applied.
+The goal was to take a set of Acceptance Criteria and work through a basic QA flow:
 
-## Scope
+**Acceptance Criteria → Test Scenarios → Test Cases → Positive/Negative coverage → RTM**
 
-The feature allows an authorized user to:
-- open a prepaid customer-registration form;
-- select Residential (RES) or Business (BUS) customer type;
-- select a document type and enter a document number;
-- enter customer-specific information;
-- enter one or more prepaid MSISDNs;
-- submit a valid registration.
+For the public portfolio version, company-specific names and identifiers were generalized and all test data is synthetic. I also cleaned up some duplicated test cases based on what I learned during the review of the exercise.
 
-The suite also covers authorization restrictions, invalid input, incomplete forms, customer-type field separation and MSISDN quantity boundaries.
+## What I practiced
 
-## Test design approach
+- understanding Acceptance Criteria before testing;
+- creating Test Scenarios and more detailed Test Cases;
+- writing both positive and negative cases;
+- checking requirement coverage with an RTM;
+- thinking about which tests are actually needed instead of duplicating the same test many times;
+- using Boundary Value Analysis (BVA) for minimum/maximum values;
+- using Equivalence Partitioning (EP) to choose representative valid and invalid inputs;
+- considering higher-risk areas such as access restrictions and data integrity.
 
-### Equivalence Partitioning (EP)
-Inputs are divided into representative valid and invalid groups rather than testing every possible value. Examples include valid/invalid MSISDN formats and valid/invalid document-number input.
+## Simple examples
 
-### Boundary Value Analysis (BVA)
-For portfolio purposes, the requirement is defined as **1–10 MSISDNs per customer**. Relevant boundary-focused tests include:
-- `0` — invalid, below minimum;
-- `1` — valid minimum;
-- `9` — valid value near maximum;
-- `10` — valid maximum;
-- `11` — invalid, above maximum.
+### Boundary Value Analysis
 
-In a real project, the exact minimum/maximum would first be clarified with Product/Business before finalizing these cases.
+For this portfolio version, a customer can have **1–10 MSISDNs**. Instead of testing every possible quantity, I focus on the boundaries — for example `0`, `1`, `10` and `11` — and values close to them where useful.
 
-### Risk-based coverage
-Special attention is given to:
-- authorization/access control;
-- mandatory customer information;
-- data integrity when adding multiple MSISDNs;
-- successful and blocked submission paths.
+### Equivalence Partitioning
+
+For an MSISDN input, I do not need to try every possible invalid value. I can test representative groups, for example:
+
+- valid numeric MSISDN;
+- empty value;
+- invalid characters such as `ABC$$$`.
 
 ### Test optimization
-Where the workflow is identical for several authorized roles, roles are treated as test data for a data-driven test instead of duplicating the same test case multiple times.
 
-## Deliverables
+If three user roles have the same steps and the same expected result, I can use the roles as different test data in one test case instead of maintaining three almost identical cases.
+
+## Project files
 
 - [Acceptance Criteria](./requirements.md)
 - [Test Scenarios](./test-scenarios.md)
-- [Detailed Test Cases](./test-cases.md)
+- [Test Cases](./test-cases.md)
 - [Requirement Traceability Matrix](./rtm.md)
 - [Test Design Notes](./test-design.md)
 
-A formatted Excel version of the same QA artefacts is maintained separately for spreadsheet-style review.
+## Note
 
-## Notes
-
-All customer names and values used in this portfolio are synthetic. Product/system names, roles and routes have been generalized. No production credentials, URLs, real customer records or proprietary source code are included.
+This is a learning/mentoring exercise, not a claim that these test cases were executed against a public production application. The purpose is to show how I structure and think about manual testing.
